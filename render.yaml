@@ -12,9 +12,9 @@ services:
         generateValue: true
       - key: DATABASE_URL
         sync: false
-  - type: static_site
+  - type: web
     name: conference-frontend
-    env: static
+    runtime: static
     root: frontend
     buildCommand: npm install && npm run build
     publishDir: dist
