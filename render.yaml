@@ -12,7 +12,7 @@ services:
         generateValue: true
       - key: DATABASE_URL
         sync: false
-  - type: static
+  - type: static_site
     name: conference-frontend
     env: static
     root: frontend
