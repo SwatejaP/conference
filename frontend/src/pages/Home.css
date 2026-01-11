@@ -1,0 +1,148 @@
+.container {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Hero Section */
+.heroSection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 1.5rem;
+    position: relative;
+    color: white;
+    /* Changed for dark overlay */
+}
+
+/* Background Image with Overlay */
+.heroSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Use the hero specific background if desired, or relying on global. 
+       If relying on global, we just need the overlay. 
+       Let's keep the specific hero image for the landing page to ensure it matches the design. */
+    background-image: url('./assets/hero_bg.png');
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+}
+
+.heroSection::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Significantly darker overlay for better text contrast */
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.8));
+    z-index: -1;
+}
+
+.enterprisePill {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    /* Solid, dark primary color for maximum visibility */
+    background-color: #2563eb;
+    color: #ffffff;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-shadow: none;
+    /* No shadow needed on solid bg */
+}
+
+.heroTitle {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    max-width: 900px;
+    /* Strong drop shadow to separate from any background details */
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.highlight {
+    color: #60a5fa;
+    /* Lighter blue for dark background */
+    text-shadow: 0 0 20px rgba(37, 99, 235, 0.6);
+    /* Glow effect */
+}
+
+.heroSubtitle {
+    font-size: 1.25rem;
+    /* Pure white for maximum contrast against the dark overlay */
+    color: #ffffff;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    line-height: 1.6;
+    font-weight: 500;
+    /* Text shadow to ensure readability even on light spots */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.heroActions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Features Grid */
+.featuresGrid {
+    padding: 6rem 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
+    margin-top: -4rem;
+    /* Overlap effect */
+}
+
+.featureCard {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+}
+
+.featureCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.15);
+    border-color: #cbd5e1;
+}
+
+.featureCard h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.featureCard p {
+    color: #64748b;
+    line-height: 1.6;
+}

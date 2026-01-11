@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: conference-backend
+    env: node
+    root: backend
+    buildCommand: npm install && npx prisma generate
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+  - type: static
+    name: conference-frontend
+    env: static
+    root: frontend
+    buildCommand: npm install && npm run build
+    publishDir: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
